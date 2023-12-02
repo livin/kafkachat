@@ -31,14 +31,11 @@ public class KafkaChatSystem implements Chat {
     private final KafkaProducer<String, String> producer;
     private final KafkaConsumer<String, String> consumer;
     private final KafkaProperties kafkaProps;
-    private final ChatClientContext chatClientContext;
     private boolean finished = false;
-    private boolean verbose = false;
     private MessageListener messageListener;
     private Thread listenerThread;
 
     public KafkaChatSystem(ChatClientContext chatClientContext) {
-        this.chatClientContext = chatClientContext;
         kafkaProps = new KafkaProperties();
         applyConfigWithUser(chatClientContext.getUserId());
 
@@ -100,6 +97,7 @@ public class KafkaChatSystem implements Chat {
         if (exception != null)
             err.println("Message error: " + exception.getMessage());
 
+        boolean verbose = false;
         if (verbose)
             out.printf("Message sent to topic %s. %d [%d|] at %tD\n",
                     metadata.topic(),
