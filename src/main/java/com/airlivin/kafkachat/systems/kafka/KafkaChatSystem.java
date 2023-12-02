@@ -34,6 +34,7 @@ public class KafkaChatSystem implements Chat {
     private boolean finished = false;
     private MessageListener messageListener;
     private Thread listenerThread;
+    private boolean verbose = false;
 
     public KafkaChatSystem(ChatClientContext chatClientContext) {
         kafkaProps = new KafkaProperties();
@@ -97,7 +98,6 @@ public class KafkaChatSystem implements Chat {
         if (exception != null)
             err.println("Message error: " + exception.getMessage());
 
-        boolean verbose = false;
         if (verbose)
             out.printf("Message sent to topic %s. %d [%d|] at %tD\n",
                     metadata.topic(),
