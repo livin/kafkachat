@@ -9,7 +9,7 @@ Here's how it looks:
 [![asciicast](https://asciinema.org/a/624566.svg)](https://asciinema.org/a/624566)
 
 ### Business case
-1. Learning to play with kafka.
+1. Learning to play with kafka. Just `~400` LOC in initial version.
 2. Want to bring multiuser chat without any subscription or third-party application?
 
 ### Requirements
