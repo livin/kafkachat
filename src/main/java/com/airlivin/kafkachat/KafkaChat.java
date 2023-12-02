@@ -101,7 +101,7 @@ public class KafkaChat implements Thread.UncaughtExceptionHandler, ChatClientCon
     private void welcome() {
         out.println("""
                 Welcome to KafkaChat 💻️💎!
-                simplest kafka-backed multi-user chat 
+                simplest kafka-backed multi-user chat
                 made for education purposes
                 © Vladimir Livin, 2023.
                 
