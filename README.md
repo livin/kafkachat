@@ -24,18 +24,41 @@ No extra configuration needed.
 
 ### Installation
 
-1. Clone repository.
-2. Get your kafka configuration (kafka.properties) and place in ~/.kafkachat/kafka.properties.
-Optionally it can be put into current directory when running app.
-3. Build with Gradle:
+1. Clone repository:
+   ```bash
+   git clone https://github.com/livin/kafkachat.git
    ```
+2. Build with Gradle:
+   ```
+   cd kafkachat
    ./gradlew installDist
    ```
-4. Cd into installation dir:
+3. Cd into installation dir:
    ```bash
    cd build/install/kafkachat
    ```
-5. Run it:
+4. Prepare your `kafka.properties` with connection parameters. it usually resides
+in your cluster configuration and looks like following:
+   ```
+   bootstrap.servers=kafka.yourserver.com:9092
+   sasl.mechanism=SCRAM-SHA-256
+   security.protocol=SASL_SSL
+   sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required \
+      username="******" \
+      password="******";
+   ```
+5. Put your kafka configuration `kafka.properties`
+   into one of locations:
+   1. Kafkachat user's config dir: `~/.kafkachat/kafka.properties`.
+   2. Current working directory from which you run the app.
+   
+6. Run the app:
    ```bash
    bin/kafkachat
+   ```
+7. Optionally symlink the `kafkachat` app into one of directory in your `$PATH`, e.g.:
+   ```bash
+   mkdir $HOME/apps/bin
+   ln -s $HOME/kafkachat/build/install/kafkachat/bin/kafkachat $HOME/apps/bin
+   export PATH="$PATH:$HOME/apps/bin"
    ```
