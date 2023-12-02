@@ -16,7 +16,8 @@ Here's how it looks:
 1. Kafka cluster/instance and its connection props.
     1. Local instance.
     2. Cloud-based cluster.
-    3. Free (no-credit card options are available).
+    3. Free (no-credit card options are available). Examples below:
+       1. Upstash.com - sign up for free kafka cluster.
 2. Kafka topic `chat` should be created inside your kafka cluster. Other topics supported as well. 
 No extra configuration needed.
 3. Java 11+ installed.
